@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dai8icyovr44b"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_56m0y"]
+[ext_resource type="PackedScene" uid="uid://dj7e34286ko1q" path="res://Scenes/Player.tscn" id="2_jul5b"]
+[ext_resource type="PackedScene" uid="uid://cq3mhgvfkhgkt" path="res://Scenes/Map.tscn" id="3_xpt4g"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_56m0y")
+
+[node name="Player" parent="." instance=ExtResource("2_jul5b")]
+position = Vector2(-98, -23)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(120, -10)
+zoom = Vector2(3.5, 3.5)
+drag_vertical_enabled = true
+drag_top_margin = 0.79
+drag_bottom_margin = 0.82
+
+[node name="Map" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_xpt4g")]
+player = NodePath("../Player")
